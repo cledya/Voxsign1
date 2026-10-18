@@ -1,0 +1,10 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Voxsign1.Views
+{
+    class LoginPage
+    {
+    }
+}

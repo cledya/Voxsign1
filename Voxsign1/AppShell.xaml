@@ -3,12 +3,26 @@
     x:Class="Voxsign1.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Voxsign1"
-    Title="Voxsign1">
+    xmlns:views="clr-namespace:Voxsign1.Views"
+    Shell.FlyoutBehavior="Disabled">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate views:LoginPage}" />
+    </ShellItem>
+
+    <TabBar>
+        <Tab Title="Accueil" Icon="icon_home.png">
+            <ShellContent Title="Accueil" ContentTemplate="{DataTemplate views:MainPage}" Route="MainPage" />
+        </Tab>
+        <Tab Title="Dictionnaire" Icon="icon_dict.png">
+            <ShellContent Title="Dictionnaire" ContentTemplate="{DataTemplate views:DictionaryPage}" Route="DictionaryPage" />
+        </Tab>
+        <Tab Title="Favoris" Icon="icon_star.png">
+            <ShellContent Title="Favoris" ContentTemplate="{DataTemplate views:FavoritesPage}" Route="FavoritesPage" />
+        </Tab>
+        <Tab Title="Échanges" Icon="icon_chat.png">
+            <ShellContent Title="Échanges" ContentTemplate="{DataTemplate views:ChatPage}" Route="ChatPage" />
+        </Tab>
+    </TabBar>
 
 </Shell>
