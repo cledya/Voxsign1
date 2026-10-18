@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Voxsign1.Views.RegisterPage"
+             BackgroundColor="#0F172A"
+             Title="Créer un compte">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="14">
+
+            <Label Text="Créons le lien." FontSize="24" FontAttributes="Bold" TextColor="White"/>
+            <Label Text="Un compte pour retrouver vos favoris et échanger avec vos proches." TextColor="#94A3B8"/>
+
+            <Entry Placeholder="Prénom" Text="{Binding FirstName}" TextColor="White" PlaceholderColor="#64748B" BackgroundColor="#1E293B"/>
+            <Entry Placeholder="Adresse e-mail" Text="{Binding Email}" TextColor="White" PlaceholderColor="#64748B" BackgroundColor="#1E293B"/>
+            <Entry Placeholder="Mot de passe" Text="{Binding Password}" IsPassword="True" TextColor="White" PlaceholderColor="#64748B" BackgroundColor="#1E293B"/>
+
+            <Picker Title="Votre langue des signes" SelectedItem="{Binding SelectedLanguage}" TitleColor="#64748B" TextColor="White" BackgroundColor="#1E293B">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>LSF - Langue des signes française</x:String>
+                        <x:String>ASL - American Sign Language</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <HorizontalStackLayout Spacing="8">
+                <CheckBox IsChecked="{Binding AcceptTerms}" Color="#2563EB"/>
+                <Label Text="J'accepte les conditions d'utilisation" TextColor="#94A3B8" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <Button Text="Créer mon compte" Command="{Binding RegisterCommand}" BackgroundColor="#2563EB" TextColor="White" CornerRadius="12" HeightRequest="50"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

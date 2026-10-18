@@ -1,10 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Voxsign1.Views.LoginPage"
+             BackgroundColor="#0F172A"
+             Shell.NavBarIsVisible="False">
 
-namespace Voxsign1.Views
-{
-    class LoginPage
-    {
-    }
-}
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="16" VerticalOptions="Center">
+
+            <Image Source="voxsign_hero.jpg" HeightRequest="180" Aspect="AspectFill" Margin="0,0,0,16"/>
+
+            <Label Text="VoxSign LSF" FontSize="28" FontAttributes="Bold" TextColor="White" HorizontalOptions="Center"/>
+            <Label Text="Se comprendre, simplement." FontSize="18" TextColor="#38BDF8" HorizontalOptions="Center"/>
+            <Label Text="Du texte, de la voix et des signes illustrés pour créer le lien." FontSize="14" TextColor="#94A3B8" HorizontalOptions="Center" HorizontalTextAlignment="Center"/>
+
+            <Entry Placeholder="Adresse e-mail" Text="{Binding Email}" TextColor="White" PlaceholderColor="#64748B" BackgroundColor="#1E293B" Margin="0,16,0,0"/>
+            <Entry Placeholder="Mot de passe" Text="{Binding Password}" IsPassword="True" TextColor="White" PlaceholderColor="#64748B" BackgroundColor="#1E293B"/>
+
+            <Label Text="Mot de passe oublié ?" TextColor="#38BDF8" FontSize="12" HorizontalOptions="End"/>
+
+            <Button Text="Se connecter" Command="{Binding LoginCommand}" BackgroundColor="#2563EB" TextColor="White" CornerRadius="12" HeightRequest="50"/>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="4">
+                <Label Text="Première visite ?" TextColor="#94A3B8"/>
+                <Label Text="Créer un compte" TextColor="#38BDF8" FontAttributes="Bold">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding GoToRegisterCommand}"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </HorizontalStackLayout>
+
+            <Button Text="Explorer sans compte" Command="{Binding ExploreWithoutAccountCommand}" BackgroundColor="Transparent" TextColor="#94A3B8"/>
+
+            <Label Text="Votre façon de communiquer vous appartient. Vos échanges restent privés." FontSize="11" TextColor="#64748B" HorizontalTextAlignment="Center" Margin="0,20,0,0"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
